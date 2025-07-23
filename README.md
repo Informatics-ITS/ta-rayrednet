@@ -1,22 +1,18 @@
 # 🏁 Tugas Akhir (TA) - Final Project
 
-**Nama Mahasiswa**: [Nama Lengkap]  
-**NRP**: [Nomor Registrasi Pokok]  
-**Judul TA**: [Judul Tugas Akhir]  
-**Dosen Pembimbing**: [Nama Dosen]  
-**Dosen Ko-pembimbing**: [Nama Dosen]
+**Nama Mahasiswa**: Rayssa Ravelia  
+**NRP**: 5025211219  
+**Judul TA**: Klasifikasi Tipe Tokoh Protagonis dan Antagonis dalam Cerita Rakyat Nusantara Menggunakan *Named Entity Recognition (NER)*  
+**Dosen Pembimbing**: Dini Adni Navastara, S.Kom., M.Sc. (NIP 198510172015042001)  
+**Dosen Ko-pembimbing**: Prof. Dr. Ir. Diana Purwitasari, S.Kom., M.Sc. (NIP 197804102003122001)
 
 ---
 
 ## 📺 Demo Aplikasi  
-Embed video demo di bawah ini (ganti `VIDEO_ID` dengan ID video YouTube Anda):  
 
-[![Demo Aplikasi](https://i.ytimg.com/vi/zIfRMTxRaIs/maxresdefault.jpg)](https://www.youtube.com/watch?v=VIDEO_ID)  
-*Klik gambar di atas untuk menonton demo*
-
----
-
-*Konten selanjutnya hanya merupakan contoh awalan yang baik. Anda dapat berimprovisasi bila diperlukan.*
+[![Demo Aplikasi](https://i.ytimg.com/vi/wO6AzzGSVq0/maxresdefault.jpg)](https://www.youtube.com/watch?v=wO6AzzGSVq0)  
+*Klik gambar di atas untuk menonton demo*  
+💡 *Catatan: Lewati ke menit **05:05** jika ingin langsung melihat bagian demonstrasi aplikasi.*
 
 ## 🛠 Panduan Instalasi & Menjalankan Software  
 
@@ -58,18 +54,9 @@ Embed video demo di bawah ini (ganti `VIDEO_ID` dengan ID video YouTube Anda):
 
 ---
 
-## ✅ Validasi
-
-Pastikan proyek memenuhi kriteria berikut sebelum submit:
-- Source code dapat di-build/run tanpa error
-- Video demo jelas menampilkan fitur utama
-- README lengkap dan terupdate
-- Tidak ada data sensitif (password, API key) yang ter-expose
-
----
-
 ## ⁉️ Pertanyaan?
 
 Hubungi:
-- Penulis: [email@mahasiswa]
-- Pembimbing Utama: [email@pembimbing]
+- Penulis: [5025211219@student.its.ac.id](mailto:5025211219@student.its.ac.id)
+- Pembimbing Utama: [dini_navastara@if.its.ac.id](mailto:dini_navastara@if.its.ac.id)
+- Ko-pembimbing: [diana@if.its.ac.id](mailto:diana@if.its.ac.id)
