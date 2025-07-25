@@ -8,6 +8,28 @@
 
 ---
 
+## 📝 Deskripsi Singkat Proyek
+
+Cerita rakyat Nusantara menyimpan kekayaan naratif yang penting bagi pelestarian budaya, namun analisis manual terhadap struktur dan karakter di dalamnya sangat memakan waktu.  
+Penelitian ini mengusulkan pendekatan otomatis berupa **pipeline bertingkat** yang terdiri dari tiga tahapan utama:
+
+1. **Named Entity Recognition (NER)** untuk mengekstraksi entitas karakter dari paragraf narasi,
+2. **Alias Clustering** untuk menyatukan penyebutan karakter yang berbeda namun merujuk ke entitas yang sama menggunakan *similarity distance* dan *word sense mapping*,
+3. **Klasifikasi Tipe Karakter** (protagonis, antagonis, atau lainnya) menggunakan pendekatan leksikal, *machine learning* klasik, dan *deep learning* berbasis BERT.
+
+Gambar di bawah ini menunjukkan tiga tahapan utama dalam sistem yang dibangun:
+![Ilustrasi Tahapan Modular](img/tahapan_modular.png)
+
+Hasil pengujian menunjukkan bahwa:
+- **NER terbaik** diperoleh dengan model *CahyaBERT 1.5G* (F1-score 0,8940),
+- **Clustering terbaik** menggunakan kombinasi *Jaro-Winkler* dan *word sense mapping* (F1-score 0,6038),
+- **Klasifikasi terbaik** dicapai oleh *Random Forest Normalized* dengan mekanisme majority vote (F1-score 0,9069).
+
+Meskipun hasilnya menjanjikan, tantangan tetap ditemukan terutama pada konsistensi alias clustering.  
+Penelitian ini berkontribusi dalam digitalisasi cerita rakyat serta pengembangan teknologi *Natural Language Processing (NLP)* untuk bahasa Indonesia.
+
+---
+
 ## 📺 Demo Aplikasi  
 
 [![Demo Aplikasi](https://i.ytimg.com/vi/wO6AzzGSVq0/maxresdefault.jpg)](https://www.youtube.com/watch?v=wO6AzzGSVq0)  
@@ -17,40 +39,55 @@
 ## 🛠 Panduan Instalasi & Menjalankan Software  
 
 ### Prasyarat  
-- Daftar dependensi (contoh):
-  - Python 3.10+
-  - Node.js v18+
-  - MySQL 8.0
-  - [Lainnya...]
+- Python 3.10+
+- pip
+- Git
 
 ### Langkah-langkah  
 1. **Clone Repository**  
    ```bash
-   git clone https://github.com/Informatics-ITS/TA.git
+   git clone https://github.com/Informatics-ITS/ta-rayrednet.git
    ```
-2. **Instalasi Dependensi**
+2. **Aktifkan Virtual Environment (Opsional tapi Direkomendasikan)**  
+   Jalankan perintah berikut sesuai dengan sistem operasi kamu:
    ```bash
-   cd [folder-proyek]
-   pip install -r requirements.txt  # Contoh untuk Python
-   npm install  # Contoh untuk Node.js
+   python -m venv .venv
+   source .venv/bin/activate  # Untuk Mac/Linux
+   .venv\Scripts\activate     # Untuk Windows
    ```
-3. **Konfigurasi**
-- Salin/rename file .env.example menjadi .env
-- Isi variabel lingkungan sesuai kebutuhan (database, API key, dll.)
-4. **Jalankan Aplikasi**
+3. **Install Dependensi**  
+   Install semua dependensi Python yang diperlukan:
    ```bash
-   python main.py  # Contoh untuk Python
-   npm start      # Contoh untuk Node.js
+   pip install -r requirements.txt
    ```
-5. Buka browser dan kunjungi: `http://localhost:3000` (sesuaikan dengan port proyek Anda)
-
+4. **Jalankan Aplikasi Streamlit**  
+   Setelah semua dependensi terpasang, jalankan aplikasi dengan perintah:
+   ```bash
+   streamlit run demo_app/app.py
+   ```
+3. **Buka di Browser**  
+   Aplikasi akan berjalan secara lokal dan bisa diakses di:
+   ```arduino
+   http://localhost:8501
+   ```
 ---
 
-## 📚 Dokumentasi Tambahan
+## 🗂️ Struktur Direktori
+```
+ta-rayrednet/
+├── data/ # Kumpulan data yang digunakan (raw, preprocessed, dsb)
+├── demo_app/ # Aplikasi Streamlit dan seluruh kode program terbaik
+├── img/ # Kumpulan gambar ilustratif untuk README
+├── model/ # Folder berisi model hasil pelatihan
+├── notebooks/ # Notebook seluruh uji coba (NER, clustering, klasifikasi)
+├── requirements.txt # Daftar dependensi Python
+├── LICENSE # Lisensi penggunaan proyek
+└── README.md # Dokumentasi utama proyek
+```
+## 📎 Arsip Lengkap Tugas Akhir
+Seluruh dokumen pendukung seperti **buku TA**, **poster**, **PPT presentasi**, **video demo**, dan **paper** tersedia pada tautan berikut:
 
-- [![Dokumentasi API]](docs/api.md)
-- [![Diagram Arsitektur]](docs/architecture.png)
-- [![Struktur Basis Data]](docs/database_schema.sql)
+📂 [Klik untuk membuka Google Drive](https://drive.google.com/drive/folders/1nJVvCZKzHXihnpvzIRRnbumvIfKEHKg2?usp=drive_link)
 
 ---
 
