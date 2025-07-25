@@ -20,19 +20,15 @@ Folder ini berisi kumpulan data yang digunakan dalam seluruh tahapan pipeline tu
 
 ### 📁 `1_raw/`
 
-Berisi 226 cerita rakyat Nusantara dalam format mentah berupa paragraf naratif.  
-Dataset ini merupakan hasil scraping dan pengumpulan manual dari berbagai sumber online, mewakili berbagai daerah di Indonesia.
+Folder ini berisi 226 cerita rakyat Nusantara dalam format mentah berupa paragraf naratif. Dataset ini dikumpulkan melalui proses *scraping* dan pengumpulan manual dari berbagai sumber online, mewakili berbagai daerah di Indonesia.
 
-📄 File utama:
-- `Dataset Cerita Rakyat.xlsx` – Berisi kumpulan cerita rakyat dalam format spreadsheet, masing-masing terdiri dari judul dan isi narasi.
+- 📄 `Dataset Cerita Rakyat.xlsx` – Berisi kumpulan cerita rakyat dalam format spreadsheet, terdiri dari judul dan isi narasi.
 
 ### 📁 `2_preprocessed/`
 
-Folder ini berisi hasil praproses dari data mentah pada `1_raw/`.  
-Data ini telah dibersihkan dan distandarisasi untuk kemudian digunakan dalam proses anotasi entitas karakter dan pelatihan model klasifikasi.
+Folder ini berisi hasil praproses dari data mentah pada `1_raw/`. Data telah dibersihkan dan distandarisasi untuk keperluan anotasi entitas karakter serta pelatihan model klasifikasi.
 
-📄 File utama:
-- `cerita_rakyat_tokenized_clean.csv` – Berisi cerita rakyat yang telah dibersihkan, distandarisasi, dan ditokenisasi per kalimat.
+- 📄 `cerita_rakyat_tokenized_clean.csv` – Berisi cerita rakyat yang telah melalui proses pembersihan, standarisasi, dan tokenisasi per kalimat.
 
 📊 Ilustrasi alur praproses teks ditampilkan pada gambar berikut:
 
@@ -44,12 +40,10 @@ Output dari tahap ini menjadi fondasi utama untuk tahapan selanjutnya dalam pipe
 
 Folder ini berisi hasil pelabelan entitas karakter menggunakan Named Entity Recognition (NER).
 
-Terdapat dua file utama:
+- 📄 `ground_truth_ner_bio.csv` – Hasil anotasi manual dalam format BIO, digunakan sebagai **label ground truth** untuk pelatihan dan evaluasi.
+- 📄 `cahyabert_ner.csv` – Hasil prediksi entitas karakter terbaik menggunakan model **CahyaBERT** yang telah dilatih pada dataset ini.
 
-- `ground_truth_ner_bio.csv` – Hasil anotasi manual menggunakan format BIO, digunakan sebagai **label ground truth** untuk pelatihan dan evaluasi.
-- `cahyabert_ner.csv` – Hasil prediksi NER terbaik menggunakan model **CahyaBERT**, yang telah dilatih dan diuji pada dataset ini.
-
-Data dari tahap ini digunakan sebagai input untuk proses alias clustering pada tahap berikutnya.
+Data ini menjadi input untuk tahap alias clustering selanjutnya.
 
 ### 📁 `4_alias_clustering/`
 
@@ -58,16 +52,18 @@ Contoh: "Putri", "Sang Putri", dan "Putri Ayu" akan digabung sebagai satu entita
 
 Terdapat tiga file utama:
 
-- `ground_truth_karakter.csv` – Hasil pelabelan manual karakter dan penyatuannya sebagai **ground truth** untuk evaluasi hasil clustering.
-- `string_similarity.csv` – Hasil clustering berbasis **string similarity** terbaik yaitu menggunakan metode Jaro-Winkler dengan threshold 0,85.
-- `string_similarity_with_wsm.csv` – Hasil clustering **gabungan antara string similarity dan word sense mapping (WSM)** untuk meningkatkan ketepatan penyatuan alias.
+- 📄 `ground_truth_karakter.csv` – Hasil pelabelan manual karakter dan penyatuannya sebagai **ground truth** untuk evaluasi hasil clustering.
+- 📄 `string_similarity.csv` – Hasil clustering berbasis **string similarity** terbaik yaitu menggunakan metode Jaro-Winkler dengan threshold 0,85.
+- 📄 `string_similarity_with_wsm.csv` – Hasil clustering **gabungan antara string similarity dan word sense mapping (WSM)** untuk meningkatkan ketepatan penyatuan alias.
 
 Data dari tahap ini menjadi dasar untuk membentuk identitas karakter unik sebelum proses klasifikasi tipe karakter dilakukan.
 
 ### 📁 `5_feature_engineering/`
-Folder ini berisi satu file `alias_sentence_features_sorted_final.csv` yang merupakan hasil penggabungan data teks dengan hasil alias clustering sebelumnya.
 
-File ini telah dilengkapi dengan berbagai fitur karakter yang akan digunakan sebagai input untuk proses klasifikasi tipe karakter pada tahap berikutnya.
+Folder ini berisi satu file utama:
+
+- 📄 `alias_sentence_features_sorted_final.csv` – Hasil penggabungan data teks cerita rakyat dengan hasil alias clustering.  
+  File ini telah dilengkapi dengan berbagai fitur karakter yang akan digunakan sebagai input untuk proses klasifikasi tipe karakter pada tahap selanjutnya.
 
 
 ### 📁 `6_character_type_classification/`
@@ -78,19 +74,27 @@ Pendekatan dibagi menjadi dua level:
 
 #### 📌 Sentence-level
 - Mengklasifikasikan karakter berdasarkan kemunculannya dalam setiap kalimat.
-- Folder `sentence_level/` berisi:
-  - `ground_truth_sentence_level.csv`
-  - Hasil prediksi dari pendekatan **deep learning (dl)**, **lexicon-based (lexicon)**, dan **machine learning klasik (ml)**.
-  - Setiap pendekatan hanya menyimpan hasil dari **model terbaik**.
+- Folder 📁 `sentence_level/` berisi:
+  - 📄 `ground_truth_sentence_level.csv` – Label ground truth level kalimat.
+  - 📁 `dl/`
+    - 📄 `v4_cahyabert_sentence_predictions.csv` – Prediksi model deep learning terbaik.
+  - 📁 `lexicon/`
+    - 📄 `vader_sentence_level_evaluasi_detailed.xlsx` – Hasil evaluasi pendekatan lexicon-based terbaik.
+  - 📁 `ml/`
+    - 📄 `random_forest_prediction.csv` – Prediksi model machine learning klasik terbaik.
 
 #### 📌 Character-level
 - Mengklasifikasikan tipe karakter berdasarkan agregasi seluruh kalimat tempat ia muncul.
-- Folder `character_level/` berisi:
-  - `ground_truth_character_level.csv`
-  - Hasil prediksi dari pendekatan **deep learning (dl)**, **lexicon-based (lexicon)**, dan **machine learning klasik (ml)**.
-  - Sama seperti sentence-level, setiap pendekatan hanya menyimpan hasil akhir dari **model terbaik**.
+- Folder 📁 `character_level/` berisi:
+  - 📄 `ground_truth_character_level.csv` – Label ground truth level karakter.
+  - 📁 `dl/`
+    - 📄 `v2_cahyabert_final_predictions.csv` – Prediksi model deep learning terbaik.
+  - 📁 `lexicon/`
+    - 📄 `character_level_afinn_pred_with_eval.csv` – Hasil evaluasi pendekatan lexicon-based terbaik.
+  - 📁 `ml/`
+    - 📄 `complement_nb_smote_evaluasi_detailed.xlsx` – Prediksi model machine learning klasik terbaik.
 
-Data dari tahap ini akan digunakan untuk proses post-processing dan majority voting pada tahap selanjutnya.
+Data dari tahap ini digunakan untuk proses post-processing dan majority voting pada tahap selanjutnya.
 
 ### 📁 `7_majority_vote_sentence/`
 
@@ -98,7 +102,7 @@ Folder ini berisi hasil akhir klasifikasi tipe karakter berdasarkan seluruh kemu
 
 Terdapat dua file utama:
 
-- `ground_truth_sentence_level.csv` – Label tipe karakter hasil anotasi manual berdasarkan kalimat-kalimat yang relevan.
-- `final_predicted_with_aliases_indo.csv` – Hasil prediksi akhir tipe karakter berdasarkan majority voting, menggunakan model terbaik yaitu **Random Forest Normalized**, yang mencapai F1-score tertinggi pada evaluasi akhir.
+- 📄 `ground_truth_sentence_level.csv` – Label tipe karakter hasil anotasi manual berdasarkan kalimat-kalimat yang relevan.
+- 📄 `final_predicted_with_aliases_indo.csv` – Hasil prediksi akhir tipe karakter berdasarkan majority voting, menggunakan model terbaik yaitu **Random Forest Normalized**, yang mencapai F1-score tertinggi pada evaluasi akhir.
 
 Data ini merupakan hasil akhir dari seluruh pipeline klasifikasi dan digunakan sebagai output utama aplikasi.
