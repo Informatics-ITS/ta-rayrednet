@@ -36,6 +36,18 @@ Penelitian ini berkontribusi dalam digitalisasi cerita rakyat serta pengembangan
 *Klik gambar di atas untuk menonton demo*  
 💡 *Catatan: Lewati ke menit **05:05** jika ingin langsung melihat bagian demonstrasi aplikasi.*
 
+## 🗂️ Struktur Direktori
+```
+ta-rayrednet/
+├── app/ # Aplikasi Streamlit dan seluruh kode program terbaik
+├── data/ # Kumpulan data yang digunakan (raw, preprocessed, dsb)
+├── img/ # Kumpulan gambar ilustratif untuk README
+├── notebooks/ # Notebook seluruh uji coba (NER, clustering, klasifikasi)
+├── requirements.txt # Daftar dependensi Python
+├── LICENSE # Lisensi penggunaan proyek
+└── README.md # Dokumentasi utama proyek
+```
+
 ## 🛠 Panduan Instalasi & Menjalankan Software  
 
 ### Prasyarat  
@@ -43,7 +55,7 @@ Penelitian ini berkontribusi dalam digitalisasi cerita rakyat serta pengembangan
 - pip
 - Git
 
-### Langkah-langkah  
+### 🚀 Cara Menjalankan Aplikasi
 1. **Clone Repository**  
    ```bash
    git clone https://github.com/Informatics-ITS/ta-rayrednet.git
@@ -61,29 +73,25 @@ Penelitian ini berkontribusi dalam digitalisasi cerita rakyat serta pengembangan
    pip install -r requirements.txt
    ```
 4. **Jalankan Aplikasi Streamlit**  
-   Setelah semua dependensi terpasang, jalankan aplikasi dengan perintah:
+   Masuk ke folder `app/`, lalu jalankan aplikasi dengan perintah:
    ```bash
+   cd app
    streamlit run demo_app/app.py
    ```
-3. **Buka di Browser**  
+5. **Buka di Browser**  
    Aplikasi akan berjalan secara lokal dan bisa diakses di:
    ```arduino
    http://localhost:8501
    ```
+   
+   Berikut tampilan antarmuka aplikasi:
+
+   ![Tampilan UI Aplikasi](img/tampilan_ui.jpeg)
+
+   Untuk penjelasan lebih detail mengenai cara kerja aplikasi, silakan tonton video demo pada bagian di atas.
+
 ---
 
-## 🗂️ Struktur Direktori
-```
-ta-rayrednet/
-├── data/ # Kumpulan data yang digunakan (raw, preprocessed, dsb)
-├── demo_app/ # Aplikasi Streamlit dan seluruh kode program terbaik
-├── img/ # Kumpulan gambar ilustratif untuk README
-├── model/ # Folder berisi model hasil pelatihan
-├── notebooks/ # Notebook seluruh uji coba (NER, clustering, klasifikasi)
-├── requirements.txt # Daftar dependensi Python
-├── LICENSE # Lisensi penggunaan proyek
-└── README.md # Dokumentasi utama proyek
-```
 ## 📎 Arsip Lengkap Tugas Akhir
 Seluruh dokumen pendukung seperti **buku TA**, **poster**, **PPT presentasi**, **video demo**, dan **paper** tersedia pada tautan berikut:
 
