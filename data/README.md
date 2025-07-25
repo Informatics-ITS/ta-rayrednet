@@ -3,17 +3,16 @@
 Folder ini berisi kumpulan data yang digunakan dalam seluruh tahapan pipeline tugas akhir, disusun secara modular berdasarkan urutan proses.
 
 ## 📂 Struktur Folder
-```bash
-data/
-├── 1_raw/ # Cerita rakyat dalam bentuk mentah (paragraf naratif)
-├── 2_preprocessed/ # Hasil preprocessing teks
-├── 3_ner/ # Label entitas karakter (NER)
-├── 4_alias_clustering/ # Hasil clustering alias karakter
-├── 5_feature_engineering/ # Ekstraksi fitur karakter dari kalimat
-├── 6_character_type_classification/ # Data untuk klasifikasi tipe karakter
-├── 7_majority_vote_sentence/ # Output klasifikasi dengan majority vote
-└── README.md
-```
+
+| No | Folder                                | Deskripsi                                                                 |
+|----|---------------------------------------|---------------------------------------------------------------------------|
+| 1  | `1_raw/`                              | Cerita rakyat dalam bentuk mentah (paragraf naratif)                      |
+| 2  | `2_preprocessed/`                     | Hasil preprocessing teks yang telah dibersihkan dan ditokenisasi         |
+| 3  | `3_ner/`                              | Label entitas karakter hasil ekstraksi menggunakan Named Entity Recognition |
+| 4  | `4_alias_clustering/`                 | Hasil clustering alias karakter berdasarkan kemiripan dan peran semantik |
+| 5  | `5_feature_engineering/`              | Ekstraksi fitur karakter dari kalimat untuk keperluan klasifikasi        |
+| 6  | `6_character_type_classification/`    | Dataset pelatihan dan hasil klasifikasi tipe karakter                    |
+| 7  | `7_majority_vote_sentence/`           | Output klasifikasi akhir berdasarkan majority voting dari semua kemunculan |
 
 ---
 
