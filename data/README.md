@@ -2,7 +2,7 @@
 
 Folder ini berisi kumpulan data yang digunakan dalam seluruh tahapan pipeline tugas akhir, disusun secara modular berdasarkan urutan proses.
 
-## 📂 Daftar File
+## 📂 Struktur Folder
 ```bash
 data/
 ├── 1_raw/ # Cerita rakyat dalam bentuk mentah (paragraf naratif)
@@ -14,7 +14,6 @@ data/
 ├── 7_majority_vote_sentence/ # Output klasifikasi dengan majority vote
 └── README.md
 ```
-
 
 ---
 
