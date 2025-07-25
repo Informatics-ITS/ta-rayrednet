@@ -56,40 +56,60 @@ ta-rayrednet/
 - Git
 
 ### 🚀 Cara Menjalankan Aplikasi
-1. **Clone Repository**  
+
+1. **Clone Repository**
+
    ```bash
    git clone https://github.com/Informatics-ITS/ta-rayrednet.git
    ```
-2. **Aktifkan Virtual Environment (Opsional tapi Direkomendasikan)**  
+
+2. **Aktifkan Virtual Environment (Opsional tapi Direkomendasikan)**
    Jalankan perintah berikut sesuai dengan sistem operasi kamu:
+
    ```bash
    python -m venv .venv
    source .venv/bin/activate  # Untuk Mac/Linux
    .venv\Scripts\activate     # Untuk Windows
    ```
-3. **Install Dependensi**  
+
+3. **Install Dependensi**
    Install semua dependensi Python yang diperlukan:
+
    ```bash
    pip install -r requirements.txt
    ```
-4. **Jalankan Aplikasi Streamlit**  
-   Masuk ke folder `app/`, lalu jalankan aplikasi dengan perintah:
+
+4. **Download Model**
+   Sebelum menjalankan aplikasi, pastikan kamu sudah mengunduh model-model terbaik yang diperlukan.
+   Masuk ke folder berikut dan ikuti instruksi pada README-nya:
+
+   ```bash
+   cd app/models/
+   ```
+
+   📄 Petunjuk dan link download tersedia di file: `README.md`
+
+5. **Jalankan Aplikasi Streamlit**
+   Setelah model berhasil diunduh dan diekstrak, masuk ke folder `app/` dan jalankan aplikasi:
+
    ```bash
    cd app
    streamlit run demo_app/app.py
    ```
-5. **Buka di Browser**  
-   Aplikasi akan berjalan secara lokal dan bisa diakses di:
+
+6. **Buka di Browser**
+   Aplikasi akan berjalan secara lokal dan bisa diakses melalui:
+
    ```arduino
    http://localhost:8501
    ```
-   
+
    Berikut tampilan antarmuka aplikasi:
 
    ![Tampilan UI Aplikasi](img/tampilan_ui.jpeg)
 
    Untuk penjelasan lebih detail mengenai cara kerja aplikasi, silakan tonton video demo pada bagian di atas.
-
+   
 ---
 
 ## 📎 Arsip Lengkap Tugas Akhir
